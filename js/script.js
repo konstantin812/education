@@ -1,4 +1,4 @@
-"use strict";
+" use strict";
 
 let numberOfFilms = +prompt('How many films you have watched yet?', '');
 // console.log(lastWatchedFilm);
@@ -13,13 +13,21 @@ let personalMovieDB = {
      privat : false
 };
 
-let lastWatchedFilm = prompt('What was the last film you watch?', '');
-let filmScore = prompt('How can you score this film?', '');
-let lastWatchedFilm1 = prompt('What was the last film you watch?', '');
-let filmScore2 = prompt('How can you score this film?', '');
 
-personalMovieDB.movies[lastWatchedFilm] = filmScore;
-personalMovieDB.movies[lastWatchedFilm1] = filmScore2;
+for (let i=1; i<3; i++) {
+     let a = prompt('What was the last film you watch?', ''),
+         b = prompt('How can you score this film?', '');
+         personalMovieDB.movies[a] = b;
+}
+
+
+// let a = prompt('What was the last film you watch?', '');
+// let b = prompt('How can you score this film?', '');
+// let c = prompt('What was the last film you watch?', '');
+// let d = prompt('How can you score this film?', '');
+
+
+// personalMovieDB.movies[c] = d;
 
 
 
