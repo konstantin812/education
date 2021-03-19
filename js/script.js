@@ -15,9 +15,21 @@ let personalMovieDB = {
 
 
 for (let i=1; i<3; i++) {
-     let a = prompt('What was the last film you watch?', ''),
-         b = prompt('How can you score this film?', '');
-         personalMovieDB.movies[a] = b;
+     let a = prompt('What was the last film you watch?', '');
+          if (a == false || a.length > 50 || a.length == 0) {
+               alert("Incorrect information! Try again");
+               i--;
+               continue;
+          }
+
+     let  b = prompt('How can you score this film?', '');
+         if (b == false || b.length > 50 || b.length == 0) {
+          alert("Incorrect information! Try again");
+          i--;
+          continue;
+         } else {
+          personalMovieDB.movies[a] = b;
+         }
 }
 
 
