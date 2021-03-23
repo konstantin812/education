@@ -1,40 +1,52 @@
 " use strict";
+let numberOfFilms;
+// let numberOfFilms; 
 
-let numberOfFilms; 
+// function start() {
+     // numberOfFilms = +prompt('How many films you have watched yet?', ''); 
+     // while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
+     //      numberOfFilms = +prompt('How many films you have watched yet?', '');
+//      }
+// }
 
-function start() {
-     numberOfFilms = +prompt('How many films you have watched yet?', ''); 
-     while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
-          numberOfFilms = +prompt('How many films you have watched yet?', '');
-     }
-}
+// start();
 
-start();
- 
 let personalMovieDB = {
      count : numberOfFilms,
      movies : {},
      actors : {},
      genres : [],
-     privat : false
+     privat : false,
+     startProg() {
+          numberOfFilms = +prompt('How many films you have watched yet?', '');
+          while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
+               numberOfFilms = +prompt('How many films you have watched yet?', '');
+          }
+          personalMovieDB.count = numberOfFilms;
+          }
 };
 
-function rememberMyFilms() {
-     for (let i = 0; i < 2; i++) {
+personalMovieDB.startProg();
+console.log(personalMovieDB);
+console.log(numberOfFilms);
+// console.log(numberOfFilms);
 
-          let a = prompt('What was the last film you watch?', '');
-          let b = prompt('How can you score this film?', '');
+// function rememberMyFilms() {
+//      for (let i = 0; i < 2; i++) {
+
+//           let a = prompt('What was the last film you watch?', '');
+//           let b = prompt('How can you score this film?', '');
      
-          if (a != null && b != null && a.length < 50 && b.length < 50 && a != '' && b != '') {
-               personalMovieDB.movies[a] = b;
-          } else {
-               alert('It is not correct information');
-               i--;
-          }
-     }
-}
+//           if (a != null && b != null && a.length < 50 && b.length < 50 && a != '' && b != '') {
+//                personalMovieDB.movies[a] = b;
+//           } else {
+//                alert('It is not correct information');
+//                i--;
+//           }
+//      }
+// }
 
-rememberMyFilms();
+// rememberMyFilms();
 
 
 function detectPersonalLevel() {
@@ -45,26 +57,26 @@ function detectPersonalLevel() {
      } else if (personalMovieDB.count >= 30) {
           console.log('You are a great films lover!');
      } else {
-          console.log('It is not correct information');
+          console.log('It is not correct1 information');
      }
 }
 
 detectPersonalLevel();
 
 
-function showMyDB() {
-     if(personalMovieDB.privat == false) {
-          console.log(personalMovieDB);
-     }
-}
+// function showMyDB() {
+//      if(personalMovieDB.privat == false) {
+//           console.log(personalMovieDB);
+//      }
+// }
 
-function writeYourGenres() {
-     for (let i = 0; i < 3; i++) {
-          let a = prompt(`What is you favoutite genres ${i+1}`, ``);
-          personalMovieDB.genres[i] = a;
-     }
-}
-writeYourGenres();
+// function writeYourGenres() {
+//      for (let i = 0; i < 3; i++) {
+//           let a = prompt(`What is you favoutite genres ${i+1}`, ``);
+//           personalMovieDB.genres[i] = a;
+//      }
+// }
+// writeYourGenres();
 
                     // console.log(personalMovieDB);
 
@@ -98,4 +110,4 @@ writeYourGenres();
      
 
 
-console.log(personalMovieDB);
+// console.log(personalMovieDB);
