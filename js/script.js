@@ -66,39 +66,36 @@ function writeYourGenres() {
 }
 writeYourGenres();
 
+                    // console.log(personalMovieDB);
+
+                         // let i = 0;
+                         // while (i < 2){
+                         //      let a = prompt('What was the last film you watch?', '');
+                         //      let  b = prompt('How can you score this film?', '');
+
+                         //      if (a != null && b != null && a.length < 50 && b.length < 50 && a != '' && b != '') {
+                         //           personalMovieDB.movies[a] = b;
+                         //      } else {
+                         //           alert('It is not correct information');
+                         //           i--;
+                         //      }
+                         //      i++;
+                         // }
+                         
+                         // let i = 0;
+                         // do {
+                         //      let a = prompt('What was the last film you watch?', '');
+                         //      let  b = prompt('How can you score this film?', '');
+
+                         //      if (a != null && b != null && a.length < 50 && b.length < 50 && a != '' && b != '') {
+                         //           personalMovieDB.movies[a] = b;
+                         //      } else {
+                         //           alert('It is not correct information');
+                         //           i--;
+                         //      }
+                         //      i++;
+                         // } while (i < 2);
+     
+
+
 console.log(personalMovieDB);
-
-     // let i = 0;
-     // while (i < 2){
-     //      let a = prompt('What was the last film you watch?', '');
-     //      let  b = prompt('How can you score this film?', '');
-
-     //      if (a != null && b != null && a.length < 50 && b.length < 50 && a != '' && b != '') {
-     //           personalMovieDB.movies[a] = b;
-     //      } else {
-     //           alert('It is not correct information');
-     //           i--;
-     //      }
-     //      i++;
-     // }
-     
-     // let i = 0;
-     // do {
-     //      let a = prompt('What was the last film you watch?', '');
-     //      let  b = prompt('How can you score this film?', '');
-
-     //      if (a != null && b != null && a.length < 50 && b.length < 50 && a != '' && b != '') {
-     //           personalMovieDB.movies[a] = b;
-     //      } else {
-     //           alert('It is not correct information');
-     //           i--;
-     //      }
-     //      i++;
-     // } while (i < 2);
-     
-
-
-// console.log(personalMovieDB);
-
-
-
