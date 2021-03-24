@@ -1,5 +1,5 @@
 " use strict";
-let numberOfFilms;
+// let numberOfFilms;
 // let numberOfFilms; 
 
 // function start() {
@@ -12,17 +12,16 @@ let numberOfFilms;
 // start();
 
 let personalMovieDB = {
-     count : numberOfFilms,
+     count : 0,
      movies : {},
      actors : {},
      genres : [],
      privat : false,
      startProg() {
-          numberOfFilms = +prompt('How many films you have watched yet?', '');
-          while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
-               numberOfFilms = +prompt('How many films you have watched yet?', '');
+          personalMovieDB.count = +prompt('How many films you have watched yet?', '');
+          while (personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
+               personalMovieDB.count = +prompt('How many films you have watched yet?', '');
           }
-          personalMovieDB.count = numberOfFilms;
      },
      detectPersonalLevel() {   
           if (personalMovieDB.count < 10) {
@@ -69,10 +68,10 @@ let personalMovieDB = {
           }
      },
      toggleVisibleMyDB() {
-          if(personalMovieDB.privat == false) {
-               personalMovieDB.privat = true;
-          } else if (personalMovieDB.privat == true) {
+          if(personalMovieDB.privat) {
                personalMovieDB.privat = false;
+          } else{
+               personalMovieDB.privat = true;
           }
      }           
 };
