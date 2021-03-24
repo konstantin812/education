@@ -23,13 +23,68 @@ let personalMovieDB = {
                numberOfFilms = +prompt('How many films you have watched yet?', '');
           }
           personalMovieDB.count = numberOfFilms;
+     },
+     detectPersonalLevel() {   
+          if (personalMovieDB.count < 10) {
+               console.log('Not many films!');
+          } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+               console.log('It is usual!');
+          } else if (personalMovieDB.count >= 30) {
+               console.log('You are a great films lover!');
+          } else {
+               console.log('It is not correct1 information');
           }
+     }, 
+     rememberMyFilms() {
+          for (let i = 0; i < 2; i++) {
+
+               let a = prompt('What was the last film you watch?', '');
+               let b = prompt('How can you score this film?', '');
+          
+               if (a != null && b != null && a.length < 50 && b.length < 50 && a != '' && b != '') {
+                    personalMovieDB.movies[a] = b;
+               } else {
+                    alert('It is not correct information');
+                    i--;
+               }
+          }
+     }, 
+     writeYourGenres() {
+          for (let i = 0; i < 3; i++) {
+               let a = prompt(`What is you favoutite genres ${i+1}`, ``);
+               if (a != null && a != '') {
+                    personalMovieDB.genres[i] = a;
+               } else {
+                    a = prompt(`What is you favoutite genres ${i+1}`, ``);
+                    i--;
+               }     
+          }
+          personalMovieDB.genres.forEach(function(genr, i, genres)   {
+               console.log(`Любимый жанр ${i+1} - это ${genr}`);
+          });
+     },
+     showMyDB() {
+          if(personalMovieDB.privat == false) {
+               console.log(personalMovieDB);
+          }
+     },
+     toggleVisibleMyDB() {
+          if(personalMovieDB.privat == false) {
+               personalMovieDB.privat = true;
+          } else if (personalMovieDB.privat == true) {
+               personalMovieDB.privat = false;
+          }
+     }           
 };
 
 personalMovieDB.startProg();
-console.log(personalMovieDB);
-console.log(numberOfFilms);
-// console.log(numberOfFilms);
+personalMovieDB.detectPersonalLevel();
+personalMovieDB.rememberMyFilms();
+personalMovieDB.writeYourGenres();
+personalMovieDB.showMyDB();
+personalMovieDB.toggleVisibleMyDB();
+
+
 
 // function rememberMyFilms() {
 //      for (let i = 0; i < 2; i++) {
@@ -49,19 +104,19 @@ console.log(numberOfFilms);
 // rememberMyFilms();
 
 
-function detectPersonalLevel() {
-     if (personalMovieDB.count < 10) {
-          console.log('Not many films!');
-     } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
-          console.log('It is usual!');
-     } else if (personalMovieDB.count >= 30) {
-          console.log('You are a great films lover!');
-     } else {
-          console.log('It is not correct1 information');
-     }
-}
+// function detectPersonalLevel() {
+//      if (personalMovieDB.count < 10) {
+//           console.log('Not many films!');
+//      } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+//           console.log('It is usual!');
+//      } else if (personalMovieDB.count >= 30) {
+//           console.log('You are a great films lover!');
+//      } else {
+//           console.log('It is not correct1 information');
+//      }
+// }
 
-detectPersonalLevel();
+// detectPersonalLevel();
 
 
 // function showMyDB() {
@@ -110,4 +165,4 @@ detectPersonalLevel();
      
 
 
-// console.log(personalMovieDB);
+console.log(personalMovieDB);
