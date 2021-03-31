@@ -25,8 +25,12 @@ const movieDB = {
 };
 
 function deleteAdvertisement() {
-    let adv1 = document.querySelector('.promo__adv');
-    adv1.remove('promo__adv');
+    let adv1 = document.querySelectorAll('.promo__adv img');
+    adv1.forEach(function(item) {
+        item.remove();
+    }
+
+    );
 }
 deleteAdvertisement();
 
@@ -38,13 +42,13 @@ changeGenre();
 
 function changeBg() {
     let bg1 = document.querySelector('.promo__bg');
-    bg1.setAttribute('style' , "background : url('../img/bg.jpg')");
+    bg1.style.backgroundImage = 'url("img/bg.jpg")';
 }
 changeBg();
 
 function addDepend() {
     let it = document.querySelectorAll('.promo__interactive-item');
-    let movArr = movieDB.movies;
+    let movArr = movieDB.movies.sort();
 
     console.log(it);
 
