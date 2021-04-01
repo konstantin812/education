@@ -14,68 +14,63 @@
 
 'use strict';
 
-
-
 const movieDB = {
     movies: [
-        "Буратино",
+        "Логан",
         "Лига справедливости",
         "Ла-ла лэнд",
-        "Афоня",
+        "Одержимость",
         "Скотт Пилигрим против..."
     ]
 };
+let it = document.querySelector('.promo__interactive-list'),
+    adv1 = document.querySelector('.promo__adv'),
+    bg1 = document.querySelector('.promo__bg'),
+    addF = document.querySelector('form.add'),
+    addInput = document.querySelector('.adding__input'),
+    gen1 = document.querySelector('.promo__genre');
 
+movieDB.movies.sort();
 
+function addForm() {
+    
+    addF.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let inputValue = addInput.value;
+        movieDB.movies.push(inputValue);
+        movieDB.movies.sort();
+        addDepend(movieDB.movies, it);
+    });
+    
+}
+addForm();
 
 function deleteAdvertisement() {
-    let adv1 = document.querySelectorAll('.promo__adv img');
-    adv1.forEach(function(item) {
-        item.remove();
-    }
-
-    );
+    adv1.remove('promo__adv');
 }
 deleteAdvertisement();
 
 function changeGenre() {
-    let gen1 = document.querySelector('.promo__genre');
     gen1.textContent='ДРАМА';
 }
 changeGenre();
 
 function changeBg() {
-    let bg1 = document.querySelector('.promo__bg');
-    bg1.style.backgroundImage = 'url("img/bg.jpg")';
+    bg1.setAttribute('style' , "background : url('../img/bg.jpg')");
 }
 changeBg();
 
-addDepend();
-
- 
-console.log(movieDB.movies);
-
-function addDepend() {
-    let it = document.querySelector('.promo__interactive-list');    
-            it.innerHTML = "";
-    
-    movieDB.movies.sort();
-
-
-    movieDB.movies.forEach(function(item, i) {
-        it.innerHTML += `<li class="promo__interactive-item"> ${i+1} ${item}
-          <div class="delete"></div>
-         </li>`;
-       });
- }
-
-
- function addFilm() {
-    let formAcess = document.querySelector('form.add');
-    formAcess.addEventListener('submit', (event) => {
-        event.preventDefault();
-        let inputFilm = formAcess.value;
-        movieDB.movies.push(inputFilm);
-    }); 
+function addDepend(films, parent) {
+    parent.innerHTML = "";
+        films.forEach(function(item, i) {
+        parent.innerHTML += `<li class="promo__interactive-item">${i + 1} ${item}
+        <div class="delete"></div>
+    </li>`;
+    });
 }
-addFilm();
+addDepend(movieDB.movies, it);
+
+
+
+
+
