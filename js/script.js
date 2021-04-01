@@ -14,15 +14,19 @@
 
 'use strict';
 
+
+
 const movieDB = {
     movies: [
         "Буратино",
         "Лига справедливости",
         "Ла-ла лэнд",
-        "Одержимость",
+        "Афоня",
         "Скотт Пилигрим против..."
     ]
 };
+
+
 
 function deleteAdvertisement() {
     let adv1 = document.querySelectorAll('.promo__adv img');
@@ -46,14 +50,32 @@ function changeBg() {
 }
 changeBg();
 
-function addDepend() {
-    let it = document.querySelectorAll('.promo__interactive-item');
-    let movArr = movieDB.movies.sort();
-
-    console.log(it);
-
-    it.forEach(function(item, i) {
-          item.innerHTML = `${i+1} ${movArr[i]} <div class="delete"></div>`;
-       });
-   }
 addDepend();
+
+ 
+console.log(movieDB.movies);
+
+function addDepend() {
+    let it = document.querySelector('.promo__interactive-list');    
+            it.innerHTML = "";
+    
+    movieDB.movies.sort();
+
+
+    movieDB.movies.forEach(function(item, i) {
+        it.innerHTML += `<li class="promo__interactive-item"> ${i+1} ${item}
+          <div class="delete"></div>
+         </li>`;
+       });
+ }
+
+
+ function addFilm() {
+    let formAcess = document.querySelector('form.add');
+    formAcess.addEventListener('submit', (event) => {
+        event.preventDefault();
+        let inputFilm = formAcess.value;
+        movieDB.movies.push(inputFilm);
+    }); 
+}
+addFilm();
